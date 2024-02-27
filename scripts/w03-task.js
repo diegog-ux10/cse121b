@@ -43,7 +43,7 @@ const multiplyNumbers = () => {
   let number1 = Number(document.querySelector('#factor1').value);
   let number2 = Number(document.querySelector('#factor2').value);
 
-  document.querySelector('#product').value = subtract(number1, number2);
+  document.querySelector('#product').value = multiply(number1, number2);
 };
 
 document
