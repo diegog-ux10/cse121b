@@ -45,7 +45,6 @@ myProfile.hobbies.forEach((hobby) => {
     hobbyElement.textContent = hobby;
     hobbiesList.appendChild(hobbyElement);
 });
-hobbiesList.innerText = myProfile.hobbies.join(', ');
 
 /* Places Lived DataList */
 
