@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedeck</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body class="final_p_body">
+    <nav>
+      <ul id="menu">
+        <li><a id="toggleMenu">&equiv;</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="w01-task.html">W1 Task</a></li>
+        <li><a href="w03-task.html">W3 Task</a></li>
+        <li><a href="w04-task.html">W4 Task</a></li>
+        <li><a href="w05-task.html">W5 Task</a></li>
+        <li><a href="project.html" class="active">Project</a></li>
+      </ul>
+    </nav>
+    >
+    <header>
+      <h1>Final Project</h1>
+    </header>
+    <main>
+      <h2>Pokedex</h2>
+      <img src="#" alt="pokemon" class="pokemon_image" />
+      <h1 class="pokemon_data">
+        <span class="pokemon_number"></span> -
+        <span class="pokemon_name"></span>
+      </h1>
+
+      <form>
+        <input
+          type="search"
+          class="input_search"
+          placeholder="Name or Number"
+          required
+        />
+      </form>
+
+      <div class="buttons">
+        <button class="button btn-prev">Prev &lt;</button>
+        <button class="button btn-next">Next &gt;</button>
+      </div>
+
+      <img
+        src="https://pokedex-conrado.vercel.app/images/pokedex.png"
+        alt="pokedex"
+        class="pokedex"
+      />
+    </main>
+    <div class="container">
+      <h2>Pokemon list</h2>
+      <div id="pokeContainer" class="poke_container"></div>
+    </div>
+    <footer>
+      &copy;<span id="year"></span> | Final Project | CSE 121b
+    </footer>
+    <script src="scripts/main.js"></script>
+    <script>
+      document.getElementById('year').innerHTML = new Date().getFullYear();
+    </script>
+    <script src="./scripts/project.js"></script>
+  </body>
+</html>
