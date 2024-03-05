@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-  fetchPokemons();
+  const paginationContainer = document.getElementById('pagination');
+  paginationContainer.addEventListener('click', handlePaginationClick);
+
+  fetchPokemons(1);
   //To shows up first Pokemon select
   renderPokemon(searchPokemon);
 });
@@ -77,16 +80,22 @@ buttonNext.addEventListener('click', () => {
 });
 
 // fetch list of pokemons
-async function fetchPokemons() {
+async function fetchPokemons(page) {
   try {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100');
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${(page - 1) * 20}`
+    );
     const data = await response.json();
     const pokemons = data.results;
     const pokeContainer = document.getElementById('pokeContainer');
 
+    pokeContainer.innerHTML = ''; // Clear previous data
+
     pokemons.forEach((pokemon) => {
       createPokemonCard(pokemon, pokeContainer);
     });
+
+    updatePagination(page);
   } catch (error) {
     console.log('Error fetching pokemons:', error);
   }
@@ -106,7 +115,11 @@ function createPokemonCard(pokemon, container) {
   image.src = imgUrl;
   image.alt = pokemon.name;
 
-  card.appendChild(image);
+  const link = document.createElement('a');
+  link.href = `detail.html?id=${getPokemonId(pokemon.url)}`;
+  link.appendChild(image);
+
+  card.appendChild(link);
   card.appendChild(name);
 
   container.appendChild(card);
@@ -115,4 +128,30 @@ function createPokemonCard(pokemon, container) {
 function getPokemonId(url) {
   const id = url.split('/').slice(-2, -1)[0];
   return id;
+}
+
+function handlePaginationClick(event) {
+  if (event.target.tagName === 'BUTTON') {
+    const page = parseInt(event.target.dataset.page);
+    fetchPokemons(page);
+  }
+}
+
+function updatePagination(currentPage) {
+  const paginationContainer = document.getElementById('pagination');
+  paginationContainer.innerHTML = '';
+
+  const totalPages = 50; // Assuming there are 50 pages in total
+
+  for (let i = 1; i <= totalPages; i++) {
+    const button = document.createElement('button');
+    button.textContent = i;
+    button.dataset.page = i;
+
+    if (i === currentPage) {
+      button.classList.add('active');
+    }
+
+    paginationContainer.appendChild(button);
+  }
 }

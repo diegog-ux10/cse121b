@@ -220,6 +220,81 @@ footer {
   gap: 20px;
 }
 
+.pagination {
+  margin-top: 20px;
+  margin-bottom: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pagination button {
+  width: auto;
+}
+
+.button_container {
+  display: flex;
+  justify-content: center;
+}
+
+.go_back_button {
+  display: inline-block;
+  text-decoration: none;
+  width: fit-content;
+  padding: 2%;
+  border: 2px solid #000;
+  border-radius: 5px;
+  font-size: clamp(8px, 5vw, 1rem);
+  font-weight: 600;
+  color: white;
+  background-color: #d12222;
+  box-shadow: -3px 4px 0 #222, -5px 7px 0 #000;
+}
+
+.detail_container {
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.detail_container h1 {
+  margin-bottom: 20px;
+}
+
+.pokemon-details {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.pokemon-details img {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+.pokemon-details table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pokemon-details th,
+.pokemon-details td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.pokemon-details tr:last-child td {
+  border-bottom: none;
+}
+
+.pokemon-details strong {
+  font-weight: bold;
+}
+
 /* Media Queries */
 @media only screen and (min-width: 32.5em) {
   nav ul {
