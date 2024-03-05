@@ -54,6 +54,9 @@ const filterTemples = (temples) => {
         case 'older':
             displayTemples(temples.filter(temp => new Date(temp.dedicated) < new Date(1950, 0, 1)));
             break;
+        case 'alphabetical':
+            displayTemples(temples.sort((a, b) => (a.templeName > b.templeName) ? 1 : -1));
+            break;
         case 'all':
         default:
             displayTemples(temples);
